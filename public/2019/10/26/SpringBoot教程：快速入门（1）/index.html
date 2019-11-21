@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="SpringBoot,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="SpringBoot简介什么是SpringBoot? SpringBoot是Spring开源组织下的一个子项目，旨在简化Spring繁琐的配置，减少配置代码和xml配置文件，降低使用Spring框架的难度。 SpringBoot提供了各种启动器starter，只需引入待使用组件对应的starter SpringBoot即能完成自动配置，开箱即用，开发者能够快速搭建Java项目，避免了以前的构建项目">
+<meta name="keywords" content="SpringBoot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot教程：快速入门（1）">
+<meta property="og:url" content="http://yoursite.com/2019/10/26/SpringBoot教程：快速入门（1）/index.html">
+<meta property="og:site_name" content="X-Station">
+<meta property="og:description" content="SpringBoot简介什么是SpringBoot? SpringBoot是Spring开源组织下的一个子项目，旨在简化Spring繁琐的配置，减少配置代码和xml配置文件，降低使用Spring框架的难度。 SpringBoot提供了各种启动器starter，只需引入待使用组件对应的starter SpringBoot即能完成自动配置，开箱即用，开发者能够快速搭建Java项目，避免了以前的构建项目">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2019/10/26/SpringBoot教程：快速入门（1）/image-20191026132451879.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028101455602.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028112341695.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028112847084.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028125614119.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028130157757.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028131317515.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028131634754.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028133645225.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028134123492.png">
+<meta property="og:updated_time" content="2019-11-21T07:02:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringBoot教程：快速入门（1）">
+<meta name="twitter:description" content="SpringBoot简介什么是SpringBoot? SpringBoot是Spring开源组织下的一个子项目，旨在简化Spring繁琐的配置，减少配置代码和xml配置文件，降低使用Spring框架的难度。 SpringBoot提供了各种启动器starter，只需引入待使用组件对应的starter SpringBoot即能完成自动配置，开箱即用，开发者能够快速搭建Java项目，避免了以前的构建项目">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/26/SpringBoot教程：快速入门（1）/image-20191026132451879.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/26/SpringBoot教程：快速入门（1）/">
+
+
+
+
+
+  <title>SpringBoot教程：快速入门（1） | X-Station</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">X-Station</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">程序员X成长记</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/26/SpringBoot教程：快速入门（1）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CodeX">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="X-Station">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SpringBoot教程：快速入门（1）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-26T12:02:47+08:00">
+                2019-10-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SpringBoot/" itemprop="url" rel="index">
+                    <span itemprop="name">SpringBoot</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="SpringBoot简介"><a href="#SpringBoot简介" class="headerlink" title="SpringBoot简介"></a>SpringBoot简介</h1><p><strong>什么是SpringBoot?</strong></p>
+<p>SpringBoot是Spring开源组织下的一个子项目，旨在简化Spring繁琐的配置，减少配置代码和xml配置文件，降低使用Spring框架的难度。</p>
+<p>SpringBoot提供了各种启动器starter，只需引入待使用组件对应的starter SpringBoot即能完成自动配置，开箱即用，开发者能够快速搭建Java项目，避免了以前的构建项目、应用打包、服务部署等操作。</p>
+<p><strong>SpringBoot的优点</strong></p>
+<ul>
+<li>为所有Spring开发者更快的入门</li>
+<li>开箱即用，提供各种默认配置来简化项目配置，自动配置（各种组件的starter）</li>
+<li>独立运行，内嵌式容器简化Web项目</li>
+<li>没有冗余代码生成和XML配置的要求</li>
+</ul>
+<p><strong>SpringBoot的缺点</strong></p>
+<ul>
+<li>上手容易精通难</li>
+<li>Spring项目难以平滑迁移至SpringBoot</li>
+</ul>
+<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
+<li><p>Maven 3.3以上版本</p>
+</li>
+<li><p>IDEA 2018</p>
+</li>
+<li><p>Jdk 1.8+</p>
+</li>
+</ul>
+<h2 id="创建项目-1"><a href="#创建项目-1" class="headerlink" title="创建项目"></a>创建项目</h2><p>创建SpringBoot有两种方式：通过官网的Spring Initializr创建；通过IDEA创建。</p>
+<p>1）官网创建</p>
+<p>进入<a href="https://start.spring.io/，看到项目创建页面。" target="_blank" rel="noopener">https://start.spring.io/，看到项目创建页面。</a></p>
+<p><img src="/2019/10/26/SpringBoot教程：快速入门（1）/image-20191026132451879.png" alt="image-20191026132451879"></p>
+<p>选择对应的参数配置后，点击<code>Generate</code>即可。</p>
+<p><img src="/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028101455602.png" alt="image-20191028101455602"></p>
+<p>2) IDEA中创建</p>
+<p><img src="/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028112341695.png" alt="image-20191028112341695"></p>
+<p><img src="/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028112847084.png" alt="image-20191028112847084"></p>
+<p>勾选需要的依赖，如需要创建web应用，勾选spring-web</p>
+<p><img src="/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028125614119.png" alt="image-20191028125614119"></p>
+<p>点击next，之后就生成了一个SpringBoot工程。</p>
+<h1 id="工程结构"><a href="#工程结构" class="headerlink" title="工程结构"></a>工程结构</h1><p>工程目录如下：</p>
+<p><img src="/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028130157757.png" alt="image-20191028130157757"></p>
+<p>Main/java: java源代码目录</p>
+<p>Resource: 资源文件夹，Springboot默认在该路径下寻找资源文件</p>
+<p>​        static: 放置静态资源文件，如css、js文件等</p>
+<p>​        template：放置页面模板文件，html，vm、thymleaf文件等</p>
+<p>test: 测试代码目录</p>
+<h1 id="项目启动"><a href="#项目启动" class="headerlink" title="项目启动"></a>项目启动</h1><p>可以在IDEA中启动项目，也可以打包项目后通过命令行启动项目，下面分别介绍两种启动方式。</p>
+<h2 id="IDEA中启动项目"><a href="#IDEA中启动项目" class="headerlink" title="IDEA中启动项目"></a>IDEA中启动项目</h2><p>打开项目对应的Application文件，这里是<code>SpringbootDemoApplication</code>，点击工具栏上方的<code>Run</code>启动程序。<img src="/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028131317515.png" alt="image-20191028131317515"></p>
+<p>控制台输出<code>Started SpringbootDemoApplication in 1.726 seconds (JVM running for 2.375)</code>，启动成功。</p>
+<p><img src="/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028131634754.png" alt="image-20191028131634754"></p>
+<h2 id="命令行启动"><a href="#命令行启动" class="headerlink" title="命令行启动"></a>命令行启动</h2><p>命令行启动首先需要将工程打成一个可执行的jar包，在项目的pom文件中引入如下依赖(项目文件若是通过Spring Initializr自动生成的应该有这个依赖)：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 这个插件，可以将应用打包成一个可执行的jar包；--&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>执行命令<code>mvn package</code>后，可以看到target目录下生成了jar包。</p>
+<p><img src="/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028133645225.png" alt="image-20191028133645225"></p>
+<p>执行<code>java -jar jar文件</code>，运行程序，效果同1)。</p>
+<p><img src="/2019/10/26/SpringBoot教程：快速入门（1）/image-20191028134123492.png" alt="image-20191028134123492"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/14/Guava-Futures/" rel="next" title="Guava Futures">
+                <i class="fa fa-chevron-left"></i> Guava Futures
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/28/SpringBoot教程：启动原理（2）/" rel="prev" title="SpringBoot教程：启动原理（2）">
+                SpringBoot教程：启动原理（2） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">CodeX</p>
+              <p class="site-description motion-element" itemprop="description">主要涉及Java、分布式、Spring/Springboot</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot简介"><span class="nav-number">1.</span> <span class="nav-text">SpringBoot简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建项目"><span class="nav-number">2.</span> <span class="nav-text">创建项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">2.1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建项目-1"><span class="nav-number">2.2.</span> <span class="nav-text">创建项目</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工程结构"><span class="nav-number">3.</span> <span class="nav-text">工程结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目启动"><span class="nav-number">4.</span> <span class="nav-text">项目启动</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IDEA中启动项目"><span class="nav-number">4.1.</span> <span class="nav-text">IDEA中启动项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行启动"><span class="nav-number">4.2.</span> <span class="nav-text">命令行启动</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CodeX</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
